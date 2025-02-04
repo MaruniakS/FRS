@@ -1,0 +1,16 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+tensorflow = "==2.4.3"
+shap = "==0.39.0"
+matplotlib = "*"
+seaborn = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.8"
+python_full_version = "3.8.20"
