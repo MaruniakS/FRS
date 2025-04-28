@@ -1,0 +1,121 @@
+[
+    {
+        "feature": "av_number_of_P2C_edges",
+        "global": 0.0498,
+        "class_avg": 0.0156,
+        "dir_avg_abs": 0.0595,
+        "frs": 0.0156
+    },
+    {
+        "feature": "av_as_path_length",
+        "global": 0.0519,
+        "class_avg": 0.0159,
+        "dir_avg_abs": 0.0423,
+        "frs": 0.0159
+    },
+    {
+        "feature": "av_unique_as_path_length",
+        "global": 0.0532,
+        "class_avg": 0.0168,
+        "dir_avg_abs": 0.0578,
+        "frs": 0.0168
+    },
+    {
+        "feature": "av_number_of_S2S_edges",
+        "global": 0.0464,
+        "class_avg": 0.0169,
+        "dir_avg_abs": 0.0402,
+        "frs": 0.0169
+    },
+    {
+        "feature": "av_number_of_bits_in_prefix_ipv4",
+        "global": 0.045,
+        "class_avg": 0.0171,
+        "dir_avg_abs": 0.0517,
+        "frs": 0.0171
+    },
+    {
+        "feature": "av_number_of_P2P_edges",
+        "global": 0.0527,
+        "class_avg": 0.0175,
+        "dir_avg_abs": 0.0525,
+        "frs": 0.0175
+    },
+    {
+        "feature": "max_as_path_length",
+        "global": 0.0558,
+        "class_avg": 0.0176,
+        "dir_avg_abs": 0.0642,
+        "frs": 0.0176
+    },
+    {
+        "feature": "av_number_of_C2P_edges",
+        "global": 0.0489,
+        "class_avg": 0.0177,
+        "dir_avg_abs": 0.067,
+        "frs": 0.0177
+    },
+    {
+        "feature": "max_unique_as_path_length",
+        "global": 0.0486,
+        "class_avg": 0.018,
+        "dir_avg_abs": 0.0577,
+        "frs": 0.018
+    },
+    {
+        "feature": "av_number_of_non_vf_paths",
+        "global": 0.0546,
+        "class_avg": 0.0182,
+        "dir_avg_abs": 0.0602,
+        "frs": 0.0182
+    },
+    {
+        "feature": "max_number_of_bits_in_prefix_ipv4",
+        "global": 0.0519,
+        "class_avg": 0.019,
+        "dir_avg_abs": 0.0668,
+        "frs": 0.019
+    },
+    {
+        "feature": "av_number_of_edges_not_in_as_graph",
+        "global": 0.0475,
+        "class_avg": 0.019,
+        "dir_avg_abs": 0.0628,
+        "frs": 0.019
+    },
+    {
+        "feature": "av_as_degree_in_paths",
+        "global": 0.0766,
+        "class_avg": 0.0467,
+        "dir_avg_abs": 0.0588,
+        "frs": 0.0467
+    },
+    {
+        "feature": "avg_geo_dist_diff_bitlen",
+        "global": 0.0631,
+        "class_avg": 0.0667,
+        "dir_avg_abs": 0.0518,
+        "frs": 0.0667
+    },
+    {
+        "feature": "n_announcements",
+        "global": 0.0761,
+        "class_avg": 0.0682,
+        "dir_avg_abs": 0.1245,
+        "frs": 0.0682
+    },
+    {
+        "feature": "avg_geo_dist_same_bitlen",
+        "global": 0.0579,
+        "class_avg": 0.0738,
+        "dir_avg_abs": 0.1573,
+        "frs": 0.0738
+    },
+    {
+        "feature": "var_as_degree_in_paths",
+        "global": 0.1199,
+        "class_avg": 0.5353,
+        "dir_avg_abs": 0.4008,
+        "frs": 0.5353
+    }
+]

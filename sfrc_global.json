@@ -1,0 +1,40 @@
+{
+    "SFRC_variance": {
+        "max_as_path_length": 0.9416467880008843,
+        "av_as_path_length": 0.915190855557277,
+        "av_number_of_bits_in_prefix_ipv4": 0.9245373597238151,
+        "max_number_of_bits_in_prefix_ipv4": 0.9856933672301353,
+        "max_unique_as_path_length": 0.9293710971320889,
+        "av_unique_as_path_length": 0.9448793555772714,
+        "var_as_degree_in_paths": 0.908832572002338,
+        "av_as_degree_in_paths": 0.9378075957193557,
+        "av_number_of_edges_not_in_as_graph": 0.9465167778057172,
+        "av_number_of_P2P_edges": 0.9330340019834843,
+        "av_number_of_C2P_edges": 0.9323946011984512,
+        "av_number_of_P2C_edges": 0.9231173589974545,
+        "av_number_of_S2S_edges": 0.926752522695395,
+        "av_number_of_non_vf_paths": 0.9589400320412399,
+        "avg_geo_dist_same_bitlen": 0.9692025270675009,
+        "avg_geo_dist_diff_bitlen": 0.9941158637841033,
+        "n_announcements": 0.927967323483488
+    },
+    "SFRC_mean_abs": {
+        "max_as_path_length": 0.9394350374752143,
+        "av_as_path_length": 0.9297218010270606,
+        "av_number_of_bits_in_prefix_ipv4": 0.9306944836421408,
+        "max_number_of_bits_in_prefix_ipv4": 0.9874087916267894,
+        "max_unique_as_path_length": 0.9308806161703314,
+        "av_unique_as_path_length": 0.9412906131380443,
+        "var_as_degree_in_paths": 0.8684506794315033,
+        "av_as_degree_in_paths": 0.9368215246535988,
+        "av_number_of_edges_not_in_as_graph": 0.9428735500072868,
+        "av_number_of_P2P_edges": 0.9314944546441658,
+        "av_number_of_C2P_edges": 0.9373442413313856,
+        "av_number_of_P2C_edges": 0.9369744297456228,
+        "av_number_of_S2S_edges": 0.9327646196403955,
+        "av_number_of_non_vf_paths": 0.959392924644264,
+        "avg_geo_dist_same_bitlen": 0.9692186783100579,
+        "avg_geo_dist_diff_bitlen": 0.9932129466003794,
+        "n_announcements": 0.9320206079117593
+    }
+}

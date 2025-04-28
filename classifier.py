@@ -6,6 +6,7 @@ import pandas as pd
 import tensorflow as tf
 import matplotlib.pyplot as plt
 import tensorflow.keras.backend as K
+import time
 
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report
@@ -15,6 +16,8 @@ from tensorflow import keras
 from tensorflow.keras import layers
 from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.callbacks import Callback
+
+from constants import FEATURES
 
 
 # Sets global seeds to ensure reproducibility
@@ -97,28 +100,7 @@ class LRFinder(Callback):
         plt.xlabel('Learning rate')
         plt.ylabel('Loss')
         plt.show()
-
-
-# Features to use for classification
-FEATURES = [
-    'max_as_path_length',
-    'av_as_path_length',
-    'av_number_of_bits_in_prefix_ipv4',
-    'max_number_of_bits_in_prefix_ipv4',
-    'max_unique_as_path_length',
-    'av_unique_as_path_length',
-    'var_as_degree_in_paths',
-    'av_as_degree_in_paths',
-    'av_number_of_edges_not_in_as_graph',
-    'av_number_of_P2P_edges',
-    'av_number_of_C2P_edges',
-    'av_number_of_P2C_edges',
-    'av_number_of_S2S_edges',
-    'av_number_of_non_vf_paths',
-    'avg_geo_dist_same_bitlen',
-    'avg_geo_dist_diff_bitlen',
-    'n_announcements'
-]
+        
 
 N_CLASSES = 3
 BATCH_SIZE = 1
@@ -228,6 +210,8 @@ def main():
     np.random.shuffle(xy_train)
     x_train, y_train = zip(*xy_train)
 
+    start_time = time.time()
+
     if args.calculate_learning_rate:
         lr_finder = LRFinder(min_lr=1e-5, 
                                     max_lr=1e-2, 
@@ -250,6 +234,10 @@ def main():
             batch_size=args.batch_size,
             epochs=args.epochs,
             validation_data=(np.array(x_valid), np.array(y_valid)))
+        
+    end_time = time.time()
+    elapsed_time = end_time - start_time
+    print(f"Training completed in {elapsed_time:.2f} seconds.")    
     
     model.save(args.output)
 
