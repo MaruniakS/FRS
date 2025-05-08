@@ -9,6 +9,8 @@ np.random.seed(42)
 
 SEQUENCE_LENGTH = 10
 
+BG_SIZE = 20
+TEST_SIZE = 200
 
 def compute_shap_importance(model, X):
     # Reshape data into (samples, sequence_len, features)
@@ -16,11 +18,11 @@ def compute_shap_importance(model, X):
     X = X[:num_samples * SEQUENCE_LENGTH].reshape((num_samples, SEQUENCE_LENGTH, X.shape[1]))
 
     # Flattened view for SHAP
-    bg_indices = np.random.choice(len(X), size=10, replace=False)
-    test_indices = np.random.choice(len(X), size=100, replace=False)
+    bg_indices = np.random.choice(len(X), size=BG_SIZE, replace=False)
+    test_indices = np.random.choice(len(X), size=TEST_SIZE, replace=False)
 
-    background = X[bg_indices].reshape(10, -1)
-    test_data = X[test_indices].reshape(100, -1)
+    background = X[bg_indices].reshape(BG_SIZE, -1)
+    test_data = X[test_indices].reshape(TEST_SIZE, -1)
 
     # Model wrapper for SHAP
     def model_fn(x):
@@ -45,7 +47,7 @@ def compute_shap_importance(model, X):
         f: v / total_importance for f, v in shap_importance.items()
     }
 
-    with open("global_importance1.json", "w") as f:
+    with open(f"global_importance-{TEST_SIZE}-{BG_SIZE}.json", "w") as f:
         json.dump(normalized_importance, f, indent=4)
 
     return normalized_importance

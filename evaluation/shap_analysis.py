@@ -5,6 +5,8 @@ import numpy as np
 import pandas as pd
 import json
 from constants import FEATURES
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 np.random.seed(42)
 
@@ -20,8 +22,8 @@ CLASS_IMPORTANCE_FILE = "class_importance200.json"
 CLASS_DIRECTION_FILE = "class_direction200.json"
 FRC_FILE = f"frs-{ALPHA}-{BETA}-{GAMMA}.json"
 
-BG_SIZE = 10
-TEST_SIZE = 100
+BG_SIZE = 20
+TEST_SIZE = 200
 
 def prepare_data(X):
     num_samples = X.shape[0] // SEQUENCE_LENGTH
@@ -100,8 +102,8 @@ def compute_frc(global_importance, class_importance, class_direction):
     results = []
     for feature in features:
         global_val = global_importance[feature]
-        class_avg = sum(class_importance[str(cls)][feature] for cls in range(NUM_CLASSES)) / NUM_CLASSES
-        dir_avg_abs = sum(abs(class_direction[str(cls)][feature]) for cls in range(NUM_CLASSES)) / NUM_CLASSES
+        class_avg = sum(class_importance[(cls)][feature] for cls in range(NUM_CLASSES)) / NUM_CLASSES
+        dir_avg_abs = sum(abs(class_direction[(cls)][feature]) for cls in range(NUM_CLASSES)) / NUM_CLASSES
         frc = ALPHA * global_val + BETA * class_avg - GAMMA * dir_avg_abs
         results.append({
             "feature": feature,
@@ -118,6 +120,74 @@ def compute_frc(global_importance, class_importance, class_direction):
         print(f"{row['feature']}: FRS = {row['frs']:.6f} (G={row['global']}, C={row['class_avg']}, D={row['dir_avg_abs']})")
     print(f"\nSaved FRS results to {FRC_FILE}")
     return results_sorted
+
+
+def draw_plots(shap_values):
+    """
+    Plot global and per-class SHAP summary plots.
+
+    Parameters:
+        shap_values: List of SHAP arrays per class (shape: list of (n_samples, sequence_length * n_features)).
+    """
+    excluded_feature = "var_as_degree_in_paths"
+    plot_features = [f for f in FEATURES if f != excluded_feature]
+    n_features = len(FEATURES)
+
+    # Reshape per class to (samples, time, features)
+    reshaped = [sv.reshape(-1, SEQUENCE_LENGTH, n_features) for sv in shap_values]
+
+    # === Global Impact ===
+    global_vals = np.mean(np.abs(np.concatenate(reshaped, axis=0)), axis=0).mean(axis=0)
+    global_vals_plot = [global_vals[FEATURES.index(f)] for f in plot_features]
+
+    plt.figure(figsize=(12, 6))
+    plt.bar(plot_features, global_vals_plot)
+    plt.ylabel("Mean Absolute SHAP Value")
+    plt.xticks(rotation=45, ha="right")
+    plt.grid(axis='y')
+    plt.tight_layout()
+    plt.savefig("global_importance.png")
+    plt.close()
+
+    # === Per-Class Impact ===
+    for class_idx, class_vals in enumerate(reshaped):
+        class_mean = np.mean(np.abs(class_vals), axis=0).mean(axis=0)
+        class_vals_plot = [class_mean[FEATURES.index(f)] for f in plot_features]
+        plt.figure(figsize=(12, 6))
+        plt.bar(plot_features, class_vals_plot)
+        plt.ylabel("Mean Absolute SHAP Value")
+        plt.xticks(rotation=45, ha="right")
+        plt.grid(axis='y')
+        plt.tight_layout()
+        plt.savefig(f"class_importance_{class_idx}.png")
+        plt.close()
+
+
+def plot_shap_direction_heatmap(signs_result, class_labels=None):
+    if class_labels is None:
+        class_labels = [f"Class {i}" for i in range(len(signs_result))]
+
+    # Convert keys to strings if needed
+    if isinstance(list(signs_result.keys())[0], int):
+        signs_result = {str(k): v for k, v in signs_result.items()}
+
+    # Build DataFrame
+    data = pd.DataFrame.from_dict(signs_result, orient='index')
+    data = data[FEATURES]
+    data.index = class_labels
+    heatmap_data = data.T  # shape: (features, classes)
+
+    # Plot heatmap
+    plt.figure(figsize=(10, len(FEATURES) * 0.4))
+    sns.heatmap(
+        heatmap_data, annot=True, center=0, cmap="RdYlGn", fmt=".2f",
+        cbar_kws={'label': 'Mean SHAP Direction'}
+    )
+    plt.xlabel("Anomaly Class")
+    plt.ylabel("Feature")
+    plt.tight_layout()
+    plt.savefig("direction_heatmap.png")
+    plt.close()
 
 
 def main():
@@ -137,10 +207,12 @@ def main():
         explainer = shap.KernelExplainer(model_wrapper(model), background)
         shap_values = explainer.shap_values(test_data)
 
+        draw_plots(shap_values)
 
         global_imp = compute_global_importance(shap_values)
         class_imp = compute_class_importance(shap_values)
         class_dir = compute_class_direction(shap_values)
+        plot_shap_direction_heatmap(class_dir, class_labels=["Direct", "Indirect", "Outage"])
         compute_frc(global_imp, class_imp, class_dir)
 
 
