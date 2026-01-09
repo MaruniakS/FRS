@@ -1,4 +1,4 @@
-# FRS — Feature Relevance Score for BGP Anomaly Classification
+# FRS - Feature Relevance Score for BGP Anomaly Classification
 
 FRS (Feature Relevance Score) is a SHAP-based feature relevance analysis framework designed to **quantify, compare, and rank the influence of input features** in deep learning models for **BGP anomaly classification**.
 
@@ -115,7 +115,7 @@ Anomaly classes follow the original repository design (e.g., direct, indirect, o
 
 All interpretability logic is located in the `evaluation/` directory.
 
-#### Step 2.1 — SHAP value computation
+#### Step 2.1 - SHAP value computation
 
 ```bash
 python evaluation/calculate_shap_values.py
@@ -128,7 +128,7 @@ This script:
 
 ---
 
-#### Step 2.2 — Class-wise feature importance
+#### Step 2.2 - Class-wise feature importance
 
 ```bash
 python evaluation/class_importance.py
@@ -138,7 +138,7 @@ Computes **class-conditional feature relevance**, allowing analysis of how featu
 
 ---
 
-#### Step 2.3 — Directional analysis
+#### Step 2.3 - Directional analysis
 
 ```bash
 python evaluation/class_direction.py
@@ -148,7 +148,7 @@ Analyzes **directional SHAP contributions**, capturing whether features predomin
 
 ---
 
-#### Step 2.4 — Feature Relevance Score (FRS) computation
+#### Step 2.4 - Feature Relevance Score (FRS) computation
 
 ```bash
 python evaluation/calculate_frs.py
@@ -171,7 +171,7 @@ where the parameters `(α, β, γ)` correspond to weighting coefficients used in
 
 ---
 
-#### Step 2.5 — Visualization and analysis
+#### Step 2.5 - Visualization and analysis
 
 ```bash
 python evaluation/draw_shap_plots.py
