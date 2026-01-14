@@ -33,7 +33,7 @@ This enables:
 
 The repository contains:
 - the original **LSTM classifier** used for BGP anomaly detection,
-- a dedicated **evaluation module** implementing SHAP-based analysis and FRS computation.
+- dedicated scripts implementing SHAP-based analysis and FRS computation.
 
 ```text
 FRS/
@@ -44,14 +44,16 @@ FRS/
 ├── data/
 │   Input datasets (features, labels, time windows)
 │
-├── evaluation/
+├── results/
+|   FRS calculation json, shap values, plots 
+│
 │   SHAP and FRS analysis scripts
-│   ├── calculate_shap_values.py
-│   ├── class_importance.py
-│   ├── class_direction.py
-│   ├── calculate_frs.py
-│   ├── shap_analysis.py
-│   └── draw_shap_plots.py
+├── calculate_shap_values.py
+├── class_importance.py
+├── class_direction.py
+├── calculate_frs.py
+├── shap_analysis.py
+├── draw_shap_plots.py
 │
 ├── Pipfile
 ├── Pipfile.lock
@@ -99,7 +101,7 @@ The full workflow consists of **two logical stages**:
 The LSTM classifier is executed via:
 
 ```bash
-python classifier.py
+python ./classifier.py data/ready/train-val.features data/ready/test.features out.model  --run-test-events-seen --run-test-events-not-seen --only-anomalous
 ```
 
 This step:
@@ -113,12 +115,11 @@ Anomaly classes follow the original repository design (e.g., direct, indirect, o
 
 ### 2. Feature relevance analysis (FRS)
 
-All interpretability logic is located in the `evaluation/` directory.
 
 #### Step 2.1 - SHAP value computation
 
 ```bash
-python evaluation/calculate_shap_values.py
+python calculate_shap_values.py
 ```
 
 This script:
@@ -131,7 +132,7 @@ This script:
 #### Step 2.2 - Class-wise feature importance
 
 ```bash
-python evaluation/class_importance.py
+python class_importance.py
 ```
 
 Computes **class-conditional feature relevance**, allowing analysis of how feature influence differs across anomaly types.
@@ -141,7 +142,7 @@ Computes **class-conditional feature relevance**, allowing analysis of how featu
 #### Step 2.3 - Directional analysis
 
 ```bash
-python evaluation/class_direction.py
+python class_direction.py
 ```
 
 Analyzes **directional SHAP contributions**, capturing whether features predominantly contribute positively or negatively to class predictions.
@@ -151,7 +152,7 @@ Analyzes **directional SHAP contributions**, capturing whether features predomin
 #### Step 2.4 - Feature Relevance Score (FRS) computation
 
 ```bash
-python evaluation/calculate_frs.py
+python calculate_frs.py
 ```
 
 This script aggregates:
@@ -174,8 +175,8 @@ where the parameters `(α, β, γ)` correspond to weighting coefficients used in
 #### Step 2.5 - Visualization and analysis
 
 ```bash
-python evaluation/draw_shap_plots.py
-python evaluation/shap_analysis.py
+python draw_shap_plots.py
+python shap_analysis.py
 ```
 
 These scripts generate:
