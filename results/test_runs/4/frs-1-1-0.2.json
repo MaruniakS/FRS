@@ -1,0 +1,121 @@
+[
+    {
+        "feature": "var_as_degree_in_paths",
+        "global": 0.1059,
+        "class_avg": 0.5199,
+        "dir_avg_abs": 0.4535,
+        "frs": 0.5351
+    },
+    {
+        "feature": "n_announcements",
+        "global": 0.0763,
+        "class_avg": 0.0827,
+        "dir_avg_abs": 0.0137,
+        "frs": 0.1563
+    },
+    {
+        "feature": "av_as_degree_in_paths",
+        "global": 0.0753,
+        "class_avg": 0.048,
+        "dir_avg_abs": 0.0248,
+        "frs": 0.1183
+    },
+    {
+        "feature": "avg_geo_dist_same_bitlen",
+        "global": 0.0526,
+        "class_avg": 0.0678,
+        "dir_avg_abs": 0.0498,
+        "frs": 0.1104
+    },
+    {
+        "feature": "avg_geo_dist_diff_bitlen",
+        "global": 0.0586,
+        "class_avg": 0.0518,
+        "dir_avg_abs": 0.032,
+        "frs": 0.104
+    },
+    {
+        "feature": "av_number_of_non_vf_paths",
+        "global": 0.0539,
+        "class_avg": 0.0206,
+        "dir_avg_abs": 0.0172,
+        "frs": 0.0711
+    },
+    {
+        "feature": "av_as_path_length",
+        "global": 0.057,
+        "class_avg": 0.0201,
+        "dir_avg_abs": 0.0318,
+        "frs": 0.0708
+    },
+    {
+        "feature": "max_number_of_bits_in_prefix_ipv4",
+        "global": 0.0552,
+        "class_avg": 0.0211,
+        "dir_avg_abs": 0.0307,
+        "frs": 0.0702
+    },
+    {
+        "feature": "max_unique_as_path_length",
+        "global": 0.055,
+        "class_avg": 0.0189,
+        "dir_avg_abs": 0.023,
+        "frs": 0.0693
+    },
+    {
+        "feature": "av_number_of_P2P_edges",
+        "global": 0.0537,
+        "class_avg": 0.0195,
+        "dir_avg_abs": 0.0267,
+        "frs": 0.0678
+    },
+    {
+        "feature": "av_number_of_S2S_edges",
+        "global": 0.0553,
+        "class_avg": 0.0187,
+        "dir_avg_abs": 0.0425,
+        "frs": 0.0655
+    },
+    {
+        "feature": "av_number_of_bits_in_prefix_ipv4",
+        "global": 0.0501,
+        "class_avg": 0.0184,
+        "dir_avg_abs": 0.021,
+        "frs": 0.0643
+    },
+    {
+        "feature": "av_unique_as_path_length",
+        "global": 0.0528,
+        "class_avg": 0.0196,
+        "dir_avg_abs": 0.0412,
+        "frs": 0.0641
+    },
+    {
+        "feature": "av_number_of_edges_not_in_as_graph",
+        "global": 0.049,
+        "class_avg": 0.0186,
+        "dir_avg_abs": 0.0197,
+        "frs": 0.0637
+    },
+    {
+        "feature": "av_number_of_C2P_edges",
+        "global": 0.0518,
+        "class_avg": 0.0192,
+        "dir_avg_abs": 0.0455,
+        "frs": 0.0619
+    },
+    {
+        "feature": "av_number_of_P2C_edges",
+        "global": 0.0494,
+        "class_avg": 0.0171,
+        "dir_avg_abs": 0.0368,
+        "frs": 0.0591
+    },
+    {
+        "feature": "max_as_path_length",
+        "global": 0.0483,
+        "class_avg": 0.0181,
+        "dir_avg_abs": 0.0473,
+        "frs": 0.0569
+    }
+]

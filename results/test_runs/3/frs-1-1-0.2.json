@@ -1,0 +1,121 @@
+[
+    {
+        "feature": "var_as_degree_in_paths",
+        "global": 0.1084,
+        "class_avg": 0.4956,
+        "dir_avg_abs": 0.313,
+        "frs": 0.5414
+    },
+    {
+        "feature": "n_announcements",
+        "global": 0.0698,
+        "class_avg": 0.0763,
+        "dir_avg_abs": 0.0477,
+        "frs": 0.1366
+    },
+    {
+        "feature": "avg_geo_dist_same_bitlen",
+        "global": 0.0568,
+        "class_avg": 0.0633,
+        "dir_avg_abs": 0.028,
+        "frs": 0.1145
+    },
+    {
+        "feature": "avg_geo_dist_diff_bitlen",
+        "global": 0.0675,
+        "class_avg": 0.0589,
+        "dir_avg_abs": 0.0627,
+        "frs": 0.1139
+    },
+    {
+        "feature": "av_as_degree_in_paths",
+        "global": 0.0663,
+        "class_avg": 0.0467,
+        "dir_avg_abs": 0.0192,
+        "frs": 0.1091
+    },
+    {
+        "feature": "av_number_of_edges_not_in_as_graph",
+        "global": 0.0566,
+        "class_avg": 0.0195,
+        "dir_avg_abs": 0.0063,
+        "frs": 0.0748
+    },
+    {
+        "feature": "max_unique_as_path_length",
+        "global": 0.0553,
+        "class_avg": 0.0216,
+        "dir_avg_abs": 0.0118,
+        "frs": 0.0746
+    },
+    {
+        "feature": "av_number_of_non_vf_paths",
+        "global": 0.0538,
+        "class_avg": 0.0217,
+        "dir_avg_abs": 0.0117,
+        "frs": 0.0732
+    },
+    {
+        "feature": "max_number_of_bits_in_prefix_ipv4",
+        "global": 0.0527,
+        "class_avg": 0.0226,
+        "dir_avg_abs": 0.0108,
+        "frs": 0.0731
+    },
+    {
+        "feature": "av_number_of_P2C_edges",
+        "global": 0.0509,
+        "class_avg": 0.0235,
+        "dir_avg_abs": 0.0087,
+        "frs": 0.0727
+    },
+    {
+        "feature": "av_number_of_S2S_edges",
+        "global": 0.0543,
+        "class_avg": 0.0212,
+        "dir_avg_abs": 0.0142,
+        "frs": 0.0726
+    },
+    {
+        "feature": "max_as_path_length",
+        "global": 0.0498,
+        "class_avg": 0.0237,
+        "dir_avg_abs": 0.0077,
+        "frs": 0.0719
+    },
+    {
+        "feature": "av_as_path_length",
+        "global": 0.0547,
+        "class_avg": 0.021,
+        "dir_avg_abs": 0.023,
+        "frs": 0.0711
+    },
+    {
+        "feature": "av_unique_as_path_length",
+        "global": 0.0501,
+        "class_avg": 0.022,
+        "dir_avg_abs": 0.0055,
+        "frs": 0.071
+    },
+    {
+        "feature": "av_number_of_bits_in_prefix_ipv4",
+        "global": 0.0503,
+        "class_avg": 0.0211,
+        "dir_avg_abs": 0.0075,
+        "frs": 0.0699
+    },
+    {
+        "feature": "av_number_of_C2P_edges",
+        "global": 0.0518,
+        "class_avg": 0.0206,
+        "dir_avg_abs": 0.0188,
+        "frs": 0.0687
+    },
+    {
+        "feature": "av_number_of_P2P_edges",
+        "global": 0.0508,
+        "class_avg": 0.0209,
+        "dir_avg_abs": 0.0172,
+        "frs": 0.0682
+    }
+]
