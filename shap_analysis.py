@@ -107,7 +107,10 @@ def compute_frc(global_imp, class_imp, class_dir):
 
     with open(FRC_FILE, "w") as f:
         json.dump(results, f, indent=4)
-
+    print("\n=== FRC Ranking ===")
+    for row in results:
+        print(f"{row['feature']}: FRS = {row['frs']:.6f} (G={row['global']}, C={row['class_avg']}, D={row['dir_avg_abs']})")
+    print(f"\nSaved FRS results to {FRC_FILE}")
     return results
 
 def draw_plots(shap_values):

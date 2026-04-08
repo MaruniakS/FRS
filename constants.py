@@ -15,5 +15,5 @@ FEATURES = [
     'av_number_of_non_vf_paths',
     'avg_geo_dist_same_bitlen',
     'avg_geo_dist_diff_bitlen',
-    'n_announcements'
+    'n_announcements',
 ]

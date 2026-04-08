@@ -1,0 +1,20 @@
+{
+  "0": {
+    "precision": 0.52,
+    "recall": 1.0,
+    "f1-score": 0.69,
+    "support": 11
+  },
+  "1": {
+    "precision": 0.88,
+    "recall": 1.0,
+    "f1-score": 0.94,
+    "support": 88
+  },
+  "2": {
+    "precision": 1.0,
+    "recall": 0.44,
+    "f1-score": 0.61,
+    "support": 39
+  }
+}
