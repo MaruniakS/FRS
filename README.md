@@ -1,3 +1,4 @@
+[![DOI](https://zenodo.org/badge/974016710.svg)](https://doi.org/10.5281/zenodo.19469390)
 # FRS - Feature Relevance Score for BGP Anomaly Classification
 
 FRS (Feature Relevance Score) is a SHAP-based feature relevance analysis framework designed to **quantify, compare, and rank the influence of input features** in deep learning models for **BGP anomaly classification**.
